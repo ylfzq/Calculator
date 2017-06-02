@@ -7,12 +7,12 @@ public abstract class TwoOperandsOperatorCalcUnit extends OperatorCalcUnit {
   }
 
   @Override
-  public Number doCalc(Number... vals) {
+  public Number doCalc(Number[] vals) {
     return doCalc(vals[0], vals[1]);
   }
 
   @Override
-  public String doLogAfterCalc(Number result, Number... vals) {
+  public String doLogAfterCalc(Number result, Number[] vals) {
     return vals[0] + name + vals[1] + "=" + result;
   }
 

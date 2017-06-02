@@ -10,12 +10,12 @@ public final class ConstantCalcUnit extends CalcUnit {
   }
 
   @Override
-  public Number doCalc(Number... vals) {
+  public Number doCalc(Number[] vals) {
     return number;
   }
 
   @Override
-  public String doLogAfterCalc(Number result, Number... vals) {
+  public String doLogAfterCalc(Number result, Number[] vals) {
     return name + "=" + number;
   }
 }

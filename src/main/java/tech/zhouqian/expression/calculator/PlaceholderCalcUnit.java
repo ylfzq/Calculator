@@ -7,12 +7,12 @@ package tech.zhouqian.expression.calculator;
   }
 
   @Override
-  public Number doCalc(Number... vals) {
+  public Number doCalc(Number[] vals) {
     return null;
   }
 
   @Override
-  public String doLogAfterCalc(Number result, Number... vals) {
+  public String doLogAfterCalc(Number result, Number[] vals) {
     return null;
   }
 }

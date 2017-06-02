@@ -22,9 +22,9 @@ import java.io.PrintStream;
     return result;
   }
 
-  public abstract Number doCalc(Number... vals);
+  public abstract Number doCalc(Number[] vals);
 
-  public abstract String doLogAfterCalc(Number result, Number... vals);
+  public abstract String doLogAfterCalc(Number result, Number[] vals);
 
   @Override
   public String toString() {

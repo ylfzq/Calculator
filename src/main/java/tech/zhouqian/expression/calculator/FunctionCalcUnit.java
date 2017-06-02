@@ -7,7 +7,7 @@ public abstract class FunctionCalcUnit extends CalcUnit {
   }
 
   @Override
-  public String doLogAfterCalc(Number result, Number... vals) {
+  public String doLogAfterCalc(Number result, Number[] vals) {
     StringBuilder sb = new StringBuilder(name);
     for (int i = 0; i < vals.length; ++i) {
       if (i == 0) {

@@ -10,8 +10,27 @@ public class TestCalculator {
 
   @Test
   public void test() {
-    System.out.println(Calculator.getDefault()
-        .setCalcStepPrintStream(System.out)
-        .calcExpression("1+2*(3+4*6)/min(5, 2, PI)"));
+    System.out.println(
+        Calculator.getDefault()
+        .addCalcUnit(new CalcUnit[] {
+            new FunctionCalcUnit("sqrt") {
+
+              @Override
+              public Number doCalc(Number[] vals) {
+                if (vals.length > 1) {
+                  throw new IllegalArgumentException("sqrt() can only receive 1 param");
+                }
+
+                return Math.sqrt(vals[0].doubleValue());
+              }
+            },
+            new TwoOperandsOperatorCalcUnit("**", CalcUnitsImpl.CALC_LEVEL_MULTIPLY_DIVID + 1) {
+              @Override public Number doCalc(Number val1, Number val2) {
+                return Math.pow(val1.doubleValue(), val2.doubleValue());
+              }
+            }
+        })
+        .calcExpression("2**3")
+    );
   }
 }

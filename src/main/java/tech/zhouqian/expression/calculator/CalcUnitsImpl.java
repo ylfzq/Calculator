@@ -2,6 +2,9 @@ package tech.zhouqian.expression.calculator;
 
 public final class CalcUnitsImpl {
 
+  public static final int CALC_LEVEL_PLUS_MINUS = 1;
+  public static final int CALC_LEVEL_MULTIPLY_DIVID = 2;
+
   public static final CalcUnit PI = new ConstantCalcUnit("PI", Math.PI);
 
   public static final CalcUnit OPERATOR_FACTORIAL = new SingleOperandOperatorCalcUnit("!", true) {
@@ -39,7 +42,7 @@ public final class CalcUnitsImpl {
     }
   };
 
-  public static final CalcUnit OPERATOR_PLUS = new TwoOperandsOperatorCalcUnit("+", 1) {
+  public static final CalcUnit OPERATOR_PLUS = new TwoOperandsOperatorCalcUnit("+", CALC_LEVEL_PLUS_MINUS) {
 
     @Override
     public Number doCalc(Number val1, Number val2) {
@@ -47,7 +50,7 @@ public final class CalcUnitsImpl {
     }
   };
 
-  public static final CalcUnit OPERATOR_MINUS = new TwoOperandsOperatorCalcUnit("-", 1) {
+  public static final CalcUnit OPERATOR_MINUS = new TwoOperandsOperatorCalcUnit("-", CALC_LEVEL_PLUS_MINUS) {
 
     @Override
     public Number doCalc(Number val1, Number val2) {
@@ -55,7 +58,7 @@ public final class CalcUnitsImpl {
     }
   };
 
-  public static final CalcUnit OPERATOR_MULTIPLY = new TwoOperandsOperatorCalcUnit("*", 2) {
+  public static final CalcUnit OPERATOR_MULTIPLY = new TwoOperandsOperatorCalcUnit("*", CALC_LEVEL_MULTIPLY_DIVID) {
 
     @Override
     public Number doCalc(Number val1, Number val2) {
@@ -63,7 +66,7 @@ public final class CalcUnitsImpl {
     }
   };
 
-  public static final CalcUnit OPERATOR_DIVID = new TwoOperandsOperatorCalcUnit("/", 2) {
+  public static final CalcUnit OPERATOR_DIVID = new TwoOperandsOperatorCalcUnit("/", CALC_LEVEL_MULTIPLY_DIVID) {
 
     @Override
     public Number doCalc(Number val1, Number val2) {
@@ -74,7 +77,7 @@ public final class CalcUnitsImpl {
   public static final CalcUnit FUNCTION_MAX = new FunctionCalcUnit("max") {
 
     @Override
-    public Number doCalc(Number... vals) {
+    public Number doCalc(Number[] vals) {
       Number maxNumber = vals[0];
       if (vals.length == 1) {
         return maxNumber;
@@ -92,7 +95,7 @@ public final class CalcUnitsImpl {
   public static final CalcUnit FUNCTION_MIN = new FunctionCalcUnit("min") {
 
     @Override
-    public Number doCalc(Number... vals) {
+    public Number doCalc(Number[] vals) {
       Number minNumber = vals[0];
       if (vals.length == 1) {
         return minNumber;
