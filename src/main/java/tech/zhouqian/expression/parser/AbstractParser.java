@@ -33,6 +33,19 @@ public abstract class AbstractParser {
     }
   }
 
+  protected int getLength() {
+    return mLength;
+  }
+
+  protected boolean startsWith(CharSequence cs) {
+    if (cs.length() > mLength) return false;
+
+    for (int i = 0; i < cs.length(); i++) {
+      if (mBuffer[i] != cs.charAt(i)) return false;
+    }
+    return true;
+  }
+
   protected abstract boolean isValidNow();
 
   @Override

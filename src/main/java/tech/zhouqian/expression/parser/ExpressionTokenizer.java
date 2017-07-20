@@ -5,6 +5,7 @@ public final class ExpressionTokenizer {
   private String mExpression;
   private int mPosition;
   private final AbstractParser[] mParsers;
+  private AbstractParser lastOne;
 
   public ExpressionTokenizer(AbstractParser... parsers) {
     mParsers = parsers;
@@ -37,6 +38,11 @@ public final class ExpressionTokenizer {
 
       boolean enough = true;
       for (AbstractParser parser : mParsers) {
+        if (lastOne instanceof NumberParser && parser instanceof NumberParser) {
+          // It is impossible that a number is following another number
+          continue;
+        }
+
         if (parser.feed(ch)) {
           enough = false;
         }
@@ -49,12 +55,14 @@ public final class ExpressionTokenizer {
     AbstractParser bestParser = null;
     int maxLength = 0;
     for (AbstractParser parser : mParsers) {
-      final int len = parser.toString().length();
+      final int len = parser.getLength();
       if (len > maxLength) {
         bestParser = parser;
         maxLength = len;
       }
     }
+
+    lastOne = bestParser;
     return bestParser;
   }
 

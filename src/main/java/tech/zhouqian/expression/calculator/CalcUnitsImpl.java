@@ -74,6 +74,13 @@ public final class CalcUnitsImpl {
     }
   };
 
+  public static final CalcUnit OPERATOR_POWER = new TwoOperandsOperatorCalcUnit("^", CALC_LEVEL_MULTIPLY_DIVID + 1) {
+    @Override
+    public Number doCalc(Number number1, Number number2) {
+      return Math.pow(number1.doubleValue(), number2.doubleValue());
+    }
+  };
+
   public static final CalcUnit FUNCTION_MAX = new FunctionCalcUnit("max") {
 
     @Override
@@ -110,8 +117,16 @@ public final class CalcUnitsImpl {
     }
   };
 
+  public static final CalcUnit FUNCTION_ABS = new FunctionCalcUnit("abs") {
+    @Override
+    public Number doCalc(Number[] numbers) {
+      if (numbers.length != 1) throw new IllegalArgumentException();
+      return Math.abs(numbers[0].doubleValue());
+    }
+  };
+
   public static final CalcUnit[] DEFAULT = new CalcUnit[]{OPERATOR_PLUS,
-      OPERATOR_MINUS, OPERATOR_MULTIPLY, OPERATOR_DIVID,
+      OPERATOR_MINUS, OPERATOR_MULTIPLY, OPERATOR_DIVID, OPERATOR_POWER,
       OPERATOR_FACTORIAL, OPERATOR_SQRT, OPERATOR_PLUS_PLUS, PI,
-      FUNCTION_MAX, FUNCTION_MIN};
+      FUNCTION_MAX, FUNCTION_MIN, FUNCTION_ABS};
 }
