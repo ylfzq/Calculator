@@ -30,7 +30,7 @@ public class TestCalculator {
                   }
                 }
             })
-            .calcExpression("2**3+min(a+b, c, d)")
+            .calcExpression("2**3+min(1, 2, 3)")
     );
   }
 
