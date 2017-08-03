@@ -19,6 +19,14 @@ import java.util.List;
  * @since 20151103
  */
 public final class Calculator {
+
+  public static void main(String[] args) {
+    for (String exp : args) {
+      System.out.println(Calculator.getDefault().calcExpression(exp));
+    }
+  }
+
+
   private static final CalcUnit LEFT_BRACKET = new PlaceholderCalcUnit("(", -2);
   private static final CalcUnit COMMA = new PlaceholderCalcUnit(",", -1);
 
