@@ -3,7 +3,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/ylfzq/Calculator.svg)](https://github.com/ylfzq/Calculator/network)
 [![GitHub stars](https://img.shields.io/github/stars/ylfzq/Calculator.svg)](https://github.com/ylfzq/Calculator/stargazers)
 [![Travis](https://img.shields.io/travis/ylfzq/Calculator.svg)]()
-[![Github file size](https://img.shields.io/github/size/ylfzq/Calculator/README.md.svg)]()
+[![Github file size](https://img.shields.io/github/size/ylfzq/Calculator/target/Calculator-latest.jar.svg)]()
 
 ![progress](http://progressed.io/bar/100?title=done)
 [![release](https://img.shields.io/github/release/ylfzq/Calculator.svg)]()
