@@ -6,9 +6,36 @@
 [![Github file size](https://img.shields.io/github/size/ylfzq/Calculator/target/Calculator-latest.jar.svg)]()
 
 ![progress](http://progressed.io/bar/100?title=done)
-[![release](https://img.shields.io/github/release/ylfzq/Calculator.svg)]()
+[![](https://jitpack.io/v/ylfzq/Calculator.svg)](https://jitpack.io/#ylfzq/Calculator)
 [![Maven Central](https://img.shields.io/maven-central/v/tech.zhouqian.java/Calculator.svg)]()
 [![license](https://img.shields.io/github/license/ylfzq/Calculator.svg)]()
+
+
+## How to compile using gradle
+
+- Step 1. Add the JitPack repository to your build file
+
+Add it in your root build.gradle at the end of repositories:
+
+```groovy
+allprojects {
+    repositories {
+        ...
+	maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+- Step 2. Add the dependency
+
+```groovy
+dependencies {
+    compile 'com.github.ylfzq:Calculator:*'
+}
+```
+
+The latest release is: [![release](https://img.shields.io/github/release/ylfzq/Calculator.svg)]()
+
 
 ## How to use
 
